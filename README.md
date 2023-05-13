@@ -69,7 +69,7 @@ The "Book" key is used to storge a single URI to a file that hosts the content o
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.19<=0.9.0;
 
-import {Unruggable} from "./Unruggable.sol";
+import {Unruggable} from "unruggable-protocol/Unruggable.sol";
 
 contract BasicPricePolicy is Unruggable {
 
