@@ -39,3 +39,27 @@ The Unruggable Protocol is fully composable, with guardians that can be larger e
 ## Oracle Risk
 
 One persistent problem in the web3 economy is the issue of outdated, faulty, or malicious oracle data. It is not possible to completely rely on oracle data long-term. The Unruggable Protocol incorporates oracle data into a policy that can be used day-to-day in the same way as an oracle. However, if the oracle dies or is manipulated, a new oracle can be found or maliciously manipulated data can be blocked.
+
+## Contracts
+
+The Unruggable Protocol does not specify a standard for policies. Smart contract inheret Unruggable.sol, which will turn any smart contract into a Book with pages as well as make the smart contract ownable, according to the OpenZeppelin standard. 
+
+The Unruggable Protocol specifies a series of pages including which are named with capitial letters and spaces for maximum readability. 
+
+The "Book" key is used to storge a single URI to a file that hosts the content of the book. If the "Book" value is used, none of the other keys should be used, i.e. "Cover", or "Introduction". If the "Body" key is used, it can be used to specify a URI and then none of the "Section" keys should be used. The "Gardians" tag is used for a URI, and if it is used none of the "Gardian" keys should be used. 
+
+- "Book"
+- "Cover"
+- "Cover Page"
+- "Introduction"
+- "Body"
+- "Section 1"
+- "Section 2"
+- . . .  
+- "Gardians"
+- "Gardian 1"
+- "Gardian 2"
+- . . . 
+- "Back Cover"
+
+
