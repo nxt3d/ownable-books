@@ -46,7 +46,7 @@ The Unruggable Protocol does not specify a standard for policies. Smart contract
 
 The Unruggable Protocol specifies a series of pages including which are named with capitial letters and spaces for maximum readability. 
 
-The "Book" key is used to storge a single URI to a file that hosts the content of the book. The "Cover", "Body" and "Gardians" pages can also be used for a URI to decentrlized storage. All the other pages are used to storge on chain data, including the introduction, sections, gardians, and back cover. In this way it is possible to combine both on chain and offchain storage to create the content of the book.  
+The "Book" key is utilized to store a single URI that points to a file which hosts the content of the book. Additionally, the "Cover", "Body", and "Guardians" pages can also store a URI to decentrlized storage. All the other pages are used to store on-chain data, such as the introduction, sections, guardians, and back cover. This approach allows for the combination of on-chain and off-chain storage to create the content of the book.
 
 - "Book"
 - "Cover"
