@@ -46,7 +46,7 @@ The Unruggable Protocol does not specify a standard for policies. Smart contract
 
 The Unruggable Protocol specifies a series of pages including which are named with capitial letters and spaces for maximum readability. 
 
-The "Book" key is used to storge a single URI to a file that hosts the content of the book. If the "Book" value is used, none of the other keys should be used, i.e. "Cover", or "Introduction". If the "Body" key is used, it can be used to specify a URI and then none of the "Section" keys should be used. The "Gardians" tag is used for a URI, and if it is used none of the "Gardian" keys should be used. 
+The "Book" key is used to storge a single URI to a file that hosts the content of the book. The "Cover", "Body" and "Gardians" pages can also be used for a URI to decentrlized storage. All the other pages are used to storge on chain data, including the introduction, sections, gardians, and back cover. In this way it is possible to combine both on chain and offchain storage to create the content of the book.  
 
 - "Book"
 - "Cover"
@@ -62,6 +62,9 @@ The "Book" key is used to storge a single URI to a file that hosts the content o
 - . . . 
 - "Back Cover"
 
+## ENS Integration
+
+A Book can also serve as an ENS name resolver, which means that you can use it to resolve ENS records for domain names like domain-rental-book.ddao.eth. The pages of the Book are mapped to ENS text records, and the "Book" page is mapped to the ENS content record. Additionally, the ENS avatar record is mapped to the "Cover" page.
 
 ### Sample Contract
 
