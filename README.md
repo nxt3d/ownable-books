@@ -50,7 +50,7 @@ The "Book" key is utilized to store a single URI that points to a file which hos
 
 - "Book"
 - "Cover"
-- "Cover Page"
+- "Title Page"
 - "Introduction"
 - "Body"
 - "Section 1"
