@@ -92,3 +92,9 @@ contract BasicPricePolicy is Unruggable {
 }
 
 ```
+
+## Security and Audits
+Please note that the Unruggable Protocol is currently in development, and our team is working diligently to ensure its security. We recommend that you avoid using the smart contracts in a production environment until a security audit has been completed.
+
+## Contributions
+Unruggable Protocol is an open source project, and we welcome contributions, including raising issues on GitHub. For direct communication, please DM @nxt3d on Twitter. To contribute code, please fork the repository, create a feature branch (features/$BRANCH_NAME) or a bug fix branch (fix/$BRANCH_NAME), and submit a pull request against the branch. We appreciate your interest in contributing to the development of Unruggable Protocol!
