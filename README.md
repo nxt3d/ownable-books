@@ -20,17 +20,17 @@ The Unruggable Protocol is composed of three key components: Books, Policies, an
 > Guardians are responsible for ensuring the integrity of the policies contained within a book over long periods of time. They are responsible for maintaining the policies in a way that is consistent with the book's rules and are required to have the necessary credentials to do so. Guardians can be individuals, organizations, or DAOs, and they are selected by the creator of the book. The guardians have the authority to modify the policies contained within a book if they see fit, but their actions should be in line with the overall purpose of the book.
 
 
-## Domain Name Rental Book Example 
+### Domain Name Rental Book Example 
 
 A domain name rental price book is a good example of a book in the protocol. This book contains a policy that sets rental prices based on conditions such as the length and type of domain name (.com, .xyz, or .eth) in a fiat currency. The policy also includes a directive to maintain the value over time. Guardians are responsible for maintaining rental prices and ensuring policy compliance, and the book contains policies, signatures, and credentials of the guardians. Books are both onchain smart contracts and practical documents.
+
+### Sports Data Book Example 
+
+A sports data book could also be created, containing policies for player and game stats. A council of guardians would post the data according to the book's policies, allowing trusted sports data to be used in onchain applications.
 
 ## Open and Permissionless Protocol 
 
 The Unruggable Protocol is an open and permissionless protocol that allows anyone to create a book. For example, a macroeconomics book could contain policies about GDP and inflation, stating where data would be sourced and how new sources could be used if previous sources become unavailable. Guardians would be responsible for maintaining the data, enabling offchain macroeconomic data to be put onchain in a trustworthy manner.
-
-## Sports Data Book Example 
-
-A sports data book could also be created, containing policies for player and game stats. A council of guardians would post the data according to the book's policies, allowing trusted sports data to be used in onchain applications.
 
 ## Composable Protocol
 
