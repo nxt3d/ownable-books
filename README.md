@@ -52,17 +52,17 @@ The "Book" key is utilized to store a single URI that points to a file which hos
 - "Cover"
 - "Title Page"
 - "Introduction"
-- "Body"
-- "Policy 1"
-- "Policy 2"
-- . . .  
-- "Section 1"
-- "Section 2"
-- . . .  
 - "Gardians"
 - "Gardian 1"
 - "Gardian 2"
 - . . . 
+- "Policy 1"
+- "Policy 2"
+- . . .  
+- "Body"
+- "Section 1"
+- "Section 2"
+- . . .  
 - "Back Cover"
 
 ## ENS Integration
