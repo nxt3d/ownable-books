@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
 import "forge-std/Test.sol";
@@ -8,7 +8,7 @@ import {IUnruggable} from "contracts/IUnruggable.sol";
 import {IERC165} from "openzeppelin-contracts/contracts/utils/introspection/IERC165.sol";
 
 
-contract BasicPricePolicyTest is Test{
+contract BasicPriceBookTest is Test{
 
 
     address account = 0x0000000000000000000000000000000000003511;
@@ -29,7 +29,7 @@ contract BasicPricePolicyTest is Test{
 
     // Create a Subheading using an empty function.
     function test1000________________________________________________________________________________() public {}
-    function test2000__________________________BASIC_PRICE_POLICY_FUNCTIONS__________________________() public {}
+    function test2000__________________________BASIC_PRICE_BOOK_FUNCTIONS__________________________() public {}
     function test3000________________________________________________________________________________() public {}
 
     //Check to make sure the subname wrapper contract supports interface detection. 
