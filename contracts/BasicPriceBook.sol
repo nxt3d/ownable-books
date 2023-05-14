@@ -3,7 +3,7 @@ pragma solidity >=0.8.19<=0.9.0;
 
 import {Unruggable} from "unruggable-protocol/Unruggable.sol";
 
-contract BasicPricePolicy is Unruggable {
+contract BasicPriceBook is Unruggable {
 
     uint256 public unitPrice;
 
