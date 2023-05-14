@@ -6,6 +6,8 @@ import {ENSBookResolver} from "./ENSBookResolver.sol";
 import {ERC165} from "@openzeppelin/contracts/utils/introspection/ERC165.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
+error CannotEdit(string key);
+
 // In the Unruggable Protocol a contract that inherits from Unruggable is called a book.
 // Books have pages which can be written to add onchain data to any contract that inherits from Unruggable. 
 
@@ -13,6 +15,9 @@ contract Unruggable is IUnruggable, ENSBookResolver, ERC165, Ownable{
  
     // a mapping to store pages of the book
     mapping(string key => string page) public pages;
+
+    // a mapping of edit fuses 
+    mapping(string key => bool cannotEditFuse) public editFuses;
 
     // a mapping of ENS Coin Types to addresses
     mapping(uint256 coinType => address _address) public ensAddresses;
@@ -24,7 +29,20 @@ contract Unruggable is IUnruggable, ENSBookResolver, ERC165, Ownable{
 
     // Add a page to the book
     function writePage(string memory key, string memory _page) public onlyOwner {
+
+        // Check to make sure the edit fuse has not been burned.
+        if (editFuses[key] == true) {
+            revert CannotEdit(key);
+        }
+
+        // Write the page to the book.
         pages[key] = _page;
+        
+    }
+
+    // Burn an edit fuse to prevent a page from being edited.
+    function burnEditFuse(string memory key) public onlyOwner {
+        editFuses[key] = true;
     }
 
     // Add an ENS address to the book. 
