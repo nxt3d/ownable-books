@@ -53,6 +53,9 @@ The "Book" key is utilized to store a single URI that points to a file which hos
 - "Title Page"
 - "Introduction"
 - "Body"
+- "Policy 1"
+- "Policy 2"
+- . . .  
 - "Section 1"
 - "Section 2"
 - . . .  
