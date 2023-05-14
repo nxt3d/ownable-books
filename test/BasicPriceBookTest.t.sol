@@ -49,4 +49,13 @@ contract BasicPriceBookTest is Test{
         address contractOwner = priceBook.owner();
         assertEq(contractOwner, account);
     }
+
+    // Check to make sure the owner of the subname is correct.
+    function test_003____transferOwnership___________TransferOwnershipIsCorrect() public {
+
+        // Get the owner of the basic price policy 
+        priceBook.transferOwnership(account2);
+        address contractOwner = priceBook.owner();
+        assertEq(contractOwner, account2);
+    }
 }

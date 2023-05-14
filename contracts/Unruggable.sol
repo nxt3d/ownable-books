@@ -22,7 +22,7 @@ contract Unruggable is IUnruggable, ENSBookResolver, ERC165, Ownable{
     // a mapping of ENS Coin Types to addresses
     mapping(uint256 coinType => address _address) public ensAddresses;
 
-    // Override the function owner() from Ownable.sol
+    // Override the function owner from Ownable.sol
     function owner() public view override (IUnruggable, Ownable) returns (address) {
         return super.owner();
     }
