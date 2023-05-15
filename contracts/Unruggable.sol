@@ -11,7 +11,7 @@ error CannotEdit(string key);
 // In the Unruggable Protocol a contract that inherits from Unruggable is called a book.
 // Books have pages which can be written to add onchain data to any contract that inherits from Unruggable. 
 
-contract Unruggable is IUnruggable, ENSBookResolver, ERC165, Ownable{
+contract Unruggable is Ownable, IUnruggable, ENSBookResolver, ERC165{
  
     // a mapping to store pages of the book
     mapping(string key => string page) public pages;
@@ -21,11 +21,6 @@ contract Unruggable is IUnruggable, ENSBookResolver, ERC165, Ownable{
 
     // a mapping of ENS Coin Types to addresses
     mapping(uint256 coinType => address _address) public ensAddresses;
-
-    // Override the function owner from Ownable.sol
-    function owner() public view override (IUnruggable, Ownable) returns (address) {
-        return super.owner();
-    }
 
     // Add a page to the book
     function writePage(string memory key, string memory _page) public onlyOwner {
