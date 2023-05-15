@@ -66,6 +66,10 @@ The "Book" key is utilized to store a single URI that points to a file which hos
 - . . .  
 - "Back Cover"
 
+## Immutable Records
+
+In the context of books, it is possible to have editable or immutable pages on a per-page basis. Immutable pages are utilized to permanently record data on the blockchain. For instance, it is feasible to make all pages of a book immutable, except for the list of guardians, which may require occasional updates over time.
+
 ## ENS Integration
 
 A Book can also serve as an ENS name resolver, which means that you can use it to resolve ENS records for domain names like domain-rental-book.ddao.eth. The pages of the Book are mapped to ENS text records, and the "Book" page is mapped to the ENS content record. Additionally, the ENS avatar record is mapped to the "Cover" page.
