@@ -42,11 +42,12 @@ One persistent problem in the web3 economy is the issue of outdated, faulty, or 
 
 ## Contracts
 
-The Unruggable Protocol does not specify a standard for policies. Smart contract inheret Unruggable.sol, which will turn any smart contract into a Book with pages as well as make the smart contract ownable, according to the OpenZeppelin standard. 
+The Unruggable Protocol does not define a standard for policies. Smart contracts inherit the Unruggable.sol contract, which transforms any smart contract into a Book with pages and makes the smart contract ownable, following the OpenZeppelin standard.
 
-The Unruggable Protocol specifies a series of pages including which are named with capitial letters and spaces for maximum readability. 
+The Unruggable Protocol specifies a set of pages with names written in capital letters and spaces, ensuring maximum readability.
 
-The "Book" key is utilized to store a single URI that points to a file which hosts the content of the book. Additionally, the "Cover", "Policies", "Gardians", and "Body" pages can also store a URI to decentrlized storage. All the other pages are used to store on-chain data, such as the introduction, sections, guardians, and back cover. This approach allows for the combination of on-chain and off-chain storage to create the content of the book.
+The "Book" key is employed to store a single URI that points to a file hosting the book's content. Moreover, the "Cover," "Policies," "Guardians," and "Body" pages can also store a URI linking to decentralized storage. All other pages are utilized to store on-chain data, such as the introduction, sections, guardians, and back cover. This approach enables a combination of on-chain and off-chain storage to generate the book's content.
+
 
 - "Book"
 - "Cover"
@@ -65,6 +66,10 @@ The "Book" key is utilized to store a single URI that points to a file which hos
 - "Section 2"
 - . . .  
 - "Back Cover"
+
+## Immutable Records
+
+In the context of books, it is possible to have editable or immutable pages on a per-page basis. Immutable pages are utilized to permanently record data on the blockchain. For instance, it is feasible to make all pages of a book immutable, except for the list of guardians, which may require occasional updates over time.
 
 ## ENS Integration
 
