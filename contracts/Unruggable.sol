@@ -2,7 +2,6 @@
 pragma solidity >=0.8.19<=0.9.0;
 
 import {IUnruggable} from "./IUnruggable.sol";
-import {ENSBookResolver} from "./ENSBookResolver.sol";
 import {ERC165} from "@openzeppelin/contracts/utils/introspection/ERC165.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
@@ -11,7 +10,7 @@ error CannotEdit(string key);
 // In the Unruggable Protocol a contract that inherits from Unruggable is called a book.
 // Books have pages which can be written to add onchain data to any contract that inherits from Unruggable. 
 
-contract Unruggable is Ownable, IUnruggable, ENSBookResolver, ERC165{
+contract Unruggable is Ownable, IUnruggable, ERC165{
  
     // a mapping to store pages of the book
     mapping(string key => string page) public pages;
@@ -50,7 +49,7 @@ contract Unruggable is Ownable, IUnruggable, ENSBookResolver, ERC165{
         public 
         view 
         virtual 
-        override  (ERC165, ENSBookResolver, IUnruggable)
+        override  (ERC165, IUnruggable)
         returns (bool) 
         {
         return  

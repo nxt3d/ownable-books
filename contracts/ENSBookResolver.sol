@@ -5,10 +5,11 @@ pragma solidity ^0.8.18;
 import {IExtendedResolver} from "./IExtendedResolver.sol";
 import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
 import {IUnruggable} from "./IUnruggable.sol";
+import {ERC165} from "@openzeppelin/contracts/utils/introspection/ERC165.sol";
 
 error CannotResolve(bytes4 selector);
 
-contract ENSBookResolver is IExtendedResolver{
+contract ENSBookResolver is IExtendedResolver, ERC165{
 
     // addr(bytes32 node, uint256 coinType) public view virtual override returns (bytes memory) 
     // => addr(bytes32,uint256) => 0xf1cb7e06
@@ -93,9 +94,11 @@ contract ENSBookResolver is IExtendedResolver{
         public
         view
         virtual
+        override 
         returns (bool)
     {
-        return interfaceId == type(IExtendedResolver).interfaceId; 
+        return interfaceId == type(IExtendedResolver).interfaceId 
+            || super.supportsInterface(interfaceId);
     }
 
 }
