@@ -9,7 +9,7 @@ The Unruggable Protocol is composed of three key components: Books, Policies, an
 
 > ### Books
 >
-> A book is an onchain smart contract that contains a set of policies governing a specific aspect of the web3 ecosystem, such as domain name rentals, sports data, or macroeconomics. Books are designed to be both useful as onchain smart contracts as well as legal and practical documents. Anyone can create a book, and the policies contained within the book are enforced by the guardians.
+> A book is an onchain smart contract that contains a set of policies governing a specific aspect of the web3 ecosystem, such as domain name rentals, sports data, or macroeconomics data. Books are designed to be both useful as onchain smart contracts as well as legal and practical documents. Anyone can create a book, and the policies contained within the book are enforced by the guardians.
 
 > ### Policies
 >
@@ -46,7 +46,7 @@ The Unruggable Protocol does not define a standard for policies. Smart contracts
 
 The Unruggable Protocol specifies a set of pages with names written in capital letters and spaces, ensuring maximum readability.
 
-The "Book" key is employed to store a single URI that points to a file hosting the book's content. Moreover, the "Cover," "Policies," "Guardians," and "Body" pages can also store a URI linking to decentralized storage. All other pages are utilized to store on-chain data, such as the introduction, sections, guardians, and back cover. This approach enables a combination of on-chain and off-chain storage to generate the book's content.
+The "Book" key is employed to store a single URI that points to a file hosting the book's content. Moreover, the "Cover," "Policies," "Guardians," and "Body" pages can also store a URI linking to decentralized storage. All other pages are used to store on-chain data, such as the introduction, sections, and guardians. This approach enables a combination of on-chain and off-chain storage to generate the book's content.
 
 
 - "Book"
