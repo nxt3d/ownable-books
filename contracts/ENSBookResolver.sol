@@ -7,10 +7,11 @@ import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
 import {IUnruggable} from "./IUnruggable.sol";
 import {ERC165} from "@openzeppelin/contracts/utils/introspection/ERC165.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import {IENSBookResolver} from "./IENSBookResolver.sol";
 
 error CannotResolve(bytes4 selector);
 
-contract ENSBookResolver is Ownable, IExtendedResolver, ERC165{
+contract ENSBookResolver is Ownable, IExtendedResolver, IENSBookResolver, ERC165{
 
     // a mapping of ENS Coin Types to addresse
     mapping(uint256 coinType => address _address) public ensAddresses;
@@ -28,7 +29,7 @@ contract ENSBookResolver is Ownable, IExtendedResolver, ERC165{
     function resolve(bytes calldata, bytes calldata data)
         external
         view
-        override 
+        override (IExtendedResolver, IENSBookResolver)
         returns (bytes memory, address)
     {
 
@@ -106,8 +107,9 @@ contract ENSBookResolver is Ownable, IExtendedResolver, ERC165{
         override 
         returns (bool)
     {
-        return interfaceId == type(IExtendedResolver).interfaceId 
-            || super.supportsInterface(interfaceId);
+        return interfaceId == type(IExtendedResolver).interfaceId ||
+            interfaceId == type(IENSBookResolver).interfaceId ||
+            super.supportsInterface(interfaceId);
     }
 
 }
