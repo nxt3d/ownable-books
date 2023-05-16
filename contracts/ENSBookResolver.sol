@@ -6,10 +6,14 @@ import {IExtendedResolver} from "./IExtendedResolver.sol";
 import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
 import {IUnruggable} from "./IUnruggable.sol";
 import {ERC165} from "@openzeppelin/contracts/utils/introspection/ERC165.sol";
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 error CannotResolve(bytes4 selector);
 
-contract ENSBookResolver is IExtendedResolver, ERC165{
+contract ENSBookResolver is Ownable, IExtendedResolver, ERC165{
+
+    // a mapping of ENS Coin Types to addresse
+    mapping(uint256 coinType => address _address) public ensAddresses;
 
     // addr(bytes32 node, uint256 coinType) public view virtual override returns (bytes memory) 
     // => addr(bytes32,uint256) => 0xf1cb7e06
@@ -53,7 +57,7 @@ contract ENSBookResolver is IExtendedResolver, ERC165{
             }
 
             // Return the resolved address.
-            return (abi.encode(book.ensAddresses(coinType)), address(this)); 
+            return (abi.encode(ensAddresses[coinType]), address(this)); 
 
         } else if (selector == 0x59d1d43c) {
             //Resolve text records.
@@ -82,6 +86,11 @@ contract ENSBookResolver is IExtendedResolver, ERC165{
             revert CannotResolve(bytes4(selector));
         }
     } 
+
+    // Add an ENS address to the book. 
+    function addEnsAddress(uint256 coinType, address _address) public onlyOwner {
+        ensAddresses[coinType] = _address;
+    }
 
     function areStringsEqual(string memory _a, string memory _b) private pure returns (bool) {
         return keccak256(bytes(_a)) == keccak256(bytes(_b));
