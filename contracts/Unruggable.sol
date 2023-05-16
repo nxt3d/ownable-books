@@ -18,9 +18,6 @@ contract Unruggable is Ownable, IUnruggable, ERC165{
     // a mapping of edit fuses 
     mapping(string key => bool cannotEditFuse) public editFuses;
 
-    // a mapping of ENS Coin Types to addresses
-    mapping(uint256 coinType => address _address) public ensAddresses;
-
     // Add a page to the book
     function writePage(string memory key, string memory _page) public onlyOwner {
 
@@ -39,17 +36,12 @@ contract Unruggable is Ownable, IUnruggable, ERC165{
         editFuses[key] = true;
     }
 
-    // Add an ENS address to the book. 
-    function addEnsAddress(uint256 coinType, address _address) public onlyOwner {
-        ensAddresses[coinType] = _address;
-    }
-
     // interface detection standard
     function supportsInterface(bytes4 interfaceId) 
         public 
         view 
         virtual 
-        override  (ERC165, IUnruggable)
+        override
         returns (bool) 
         {
         return  
