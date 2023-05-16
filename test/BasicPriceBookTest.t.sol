@@ -5,6 +5,7 @@ import "forge-std/Test.sol";
 
 import {BasicPriceBook} from "contracts/BasicPriceBook.sol";
 import {IUnruggable} from "contracts/IUnruggable.sol";
+import {IENSBookResolver} from "contracts/IENSBookResolver.sol";
 import {IERC165} from "openzeppelin-contracts/contracts/utils/introspection/IERC165.sol";
 
 
@@ -35,8 +36,11 @@ contract BasicPriceBookTest is Test{
     //Check to make sure the subname wrapper contract supports interface detection. 
     function test_001____supportsInterface___________SupportsCorrectInterfaces() public {
 
-        // Check for the IERC1155MetadataURI interface.  
+        // Check for the IUnruggable interface.  
         assertEq(priceBook.supportsInterface(type(IUnruggable).interfaceId), true);
+
+        // Check for the IENSBookResolver interface.  
+        assertEq(priceBook.supportsInterface(type(IENSBookResolver).interfaceId), true);
 
         // Check for the IERC165 interface.  
         assertEq(priceBook.supportsInterface(type(IERC165).interfaceId), true);
