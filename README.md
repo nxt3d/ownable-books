@@ -53,9 +53,9 @@ The "Book" key is employed to store a single URI that points to a file hosting t
 - "Cover"
 - "Title Page"
 - "Introduction"
-- "Gardians"
-- "Gardian 1"
-- "Gardian 2"
+- "Guardians"
+- "Guardian 1"
+- "Guardian 2"
 - . . . 
 - "Policies"
 - "Policy 1"
