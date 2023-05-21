@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.19<=0.9.0;
+pragma solidity >=0.8.19<0.9.0;
 
 import {IUnruggable} from "./IUnruggable.sol";
 import {ERC165} from "@openzeppelin/contracts/utils/introspection/ERC165.sol";
@@ -8,17 +8,21 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 error CannotEdit(string key);
 
 // In the Unruggable Protocol a contract that inherits from Unruggable is called a book.
-// Books have pages which can be written to add onchain data to any contract that inherits from Unruggable. 
+// Books have pages which can be written to to add onchain data to any contract that inherits from Unruggable. 
 
 contract Unruggable is Ownable, IUnruggable, ERC165{
  
-    // a mapping to store pages of the book
+    // A mapping to store pages of the book.
     mapping(string key => string page) public pages;
 
-    // a mapping of edit fuses 
+    // A mapping of edit fuses.
     mapping(string key => bool cannotEditFuse) public editFuses;
 
-    // Add a page to the book
+    /**
+    * @dev A function to write a page to the book.
+    * @param key The key of the page, e.g "Title Page".
+    * @param _page The page to write, could be a URI.
+    */
     function writePage(string memory key, string memory _page) public onlyOwner {
 
         // Check to make sure the edit fuse has not been burned.
@@ -31,7 +35,10 @@ contract Unruggable is Ownable, IUnruggable, ERC165{
         
     }
 
-    // Burn an edit fuse to prevent a page from being edited.
+    /**
+    * @dev A function to burn an edit fuse.
+    * @param key The key of the page, e.g "Title Page". 
+    */
     function burnEditFuse(string memory key) public onlyOwner {
         editFuses[key] = true;
     }

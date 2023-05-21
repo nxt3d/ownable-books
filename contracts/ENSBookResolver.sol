@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: MIT 
-pragma solidity ^0.8.18;
+pragma solidity >=0.8.19<0.9.0;
 
 //import "forge-std/console.sol";
 import {IExtendedResolver} from "./IExtendedResolver.sol";
@@ -25,6 +25,11 @@ contract ENSBookResolver is Ownable, IExtendedResolver, IENSBookResolver, ERC165
     // contenthash(bytes32 node) external virtual authorised(node) 
     // contenthash( bytes32 node) external view virtual override returns (bytes memory) 
     // => contenthash(bytes32) => 0xbc1c58d1
+
+    /**
+    * @dev A function to resolve an ENS name. The name parameter is ignored.
+    * @param data data The data to resolve.
+     */
 
     function resolve(bytes calldata, bytes calldata data)
         external
@@ -88,7 +93,12 @@ contract ENSBookResolver is Ownable, IExtendedResolver, IENSBookResolver, ERC165
         }
     } 
 
-    // Add an ENS address to the book. 
+    /**
+    * @dev A function to add an address for ENS resolution.
+    * @param coinType The ENS Coin Type.
+    * @param _address The address to add.
+     */
+
     function addEnsAddress(uint256 coinType, address _address) public onlyOwner {
         ensAddresses[coinType] = _address;
     }
