@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.19<=0.9.0;
+pragma solidity >=0.8.19<0.9.0;
 
 import {Unruggable} from "unruggable-protocol/contracts/Unruggable.sol";
 import {ENSBookResolver} from "unruggable-protocol/contracts/ENSBookResolver.sol";
