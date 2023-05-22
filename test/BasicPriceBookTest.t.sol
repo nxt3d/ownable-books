@@ -215,7 +215,32 @@ contract BasicPriceBookTest is Test{
 
     } 
 
-    function test_013____resolve_____________________ResolveAContentRecordPage() public {
+    function test_013____resolve_____________________ResolveAvatarTextRecord() public {
+
+        // Write a page in the renewal controller "Title Page".
+
+        priceBook.writePage(
+            "Cover",
+            "avatar uri"
+        );
+
+        assertEq(priceBook.pages("Cover"), "avatar uri");
+
+
+        // Check that the resolver can resolve the text record.
+        (bytes memory resolvedTextRecord, ) = 
+            priceBook.resolve(bytes(""), 
+                abi.encodeWithSelector(bytes4(0x59d1d43c), bytes32(0), "avatar"));
+
+        // abi decode resolvedTextRecord
+        (string memory textRecord) = abi.decode(resolvedTextRecord, (string));
+    
+        // Check that the address is correct.
+        assertEq(textRecord, "avatar uri");
+
+    } 
+
+    function test_014____resolve_____________________ResolveAContentRecordPage() public {
 
         // Write a page in the renewal controller "Book".
 
