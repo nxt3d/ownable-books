@@ -13,10 +13,9 @@ contract BasicPriceBook is IBasicPriceBook, Unruggable, ENSBookResolver {
         unitPrice = _unitPrice;
     }
     
-    // Set the price
     /**
-    * @dev Set the price for the contract.
-    * @param _unitPrice The price to set.
+     * @dev Set the price for the contract.
+     * @param _unitPrice The price to set.
      */
 
     function setPrice(uint256 _unitPrice) public onlyOwner {
@@ -24,12 +23,11 @@ contract BasicPriceBook is IBasicPriceBook, Unruggable, ENSBookResolver {
     }
 
     /**
-    * @dev Get the price for the contract.
-    * @param quantity The quantity of items.
-    * @return The total price of the items.
+     * @dev Get the price for the contract.
+     * @param quantity The quantity of items.
+     * @return The total price of the items.
      */
 
-    // Get the price with a quantity
     function getPrice(uint256 quantity) public view returns (uint256) {
         return unitPrice * quantity;
     }
