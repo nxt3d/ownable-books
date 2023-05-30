@@ -82,10 +82,9 @@ A Book can also serve as an ENS name resolver, which means that you can use it t
 pragma solidity >=0.8.19<0.9.0;
 
 import {Unruggable} from "unruggable-protocol/contracts/Unruggable.sol";
-import {ENSBookResolver} from "unruggable-protocol/contracts/ENSBookResolver.sol";
 import {IBasicPriceBook} from "./IBasicPriceBook.sol";
 
-contract BasicPriceBook is IBasicPriceBook, Unruggable, ENSBookResolver {
+contract BasicPriceBook is IBasicPriceBook, Unruggable {
 
     uint256 public unitPrice;
 
@@ -115,7 +114,7 @@ contract BasicPriceBook is IBasicPriceBook, Unruggable, ENSBookResolver {
     function supportsInterface(bytes4 interfaceId) 
         public 
         view 
-        override (ENSBookResolver, Unruggable)
+        override 
         returns (bool) 
         {
         return 
