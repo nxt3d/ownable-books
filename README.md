@@ -73,7 +73,7 @@ In the context of books, it is possible to have editable or immutable pages on a
 
 ## ENS Integration
 
-A Book can also serve as an ENS name resolver, which means that you can use it to resolve ENS records for domain names like domain-rental-book.ddao.eth. The pages of the Book are mapped to ENS text records, and the "Book" page is mapped to the ENS content record. Additionally, the ENS avatar record is mapped to the "Cover" page.
+A Book can also be used to resolve ENS records for domain names like domain-rental-book.ddao.eth. The pages of the Book are mapped to ENS text records, and the "Book" page is mapped to the ENS content record. Additionally, the ENS avatar record is mapped to the "Cover" page.
 
 ### Sample Contract
 
