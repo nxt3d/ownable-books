@@ -3,11 +3,14 @@ pragma solidity ^0.8.13;
 
 import "forge-std/Script.sol";
 import {BasicPriceBook} from "contracts/BasicPriceBook.sol";
+import {ENSBookResolver} from "contracts/ENSBookResolver.sol";
 
 contract DeployBasicPriceBookScript is Script {
     function setUp() public {}
 
     BasicPriceBook public priceBook;
+
+    ENSBookResolver public ensBookResolver;
 
     function run() public {
 
@@ -33,33 +36,36 @@ contract DeployBasicPriceBookScript is Script {
 
         priceBook = new BasicPriceBook(5 * 1e18); 
 
-        priceBook.addEnsAddress(60, address(priceBook));
+        // Deploy the ENS book resolver, and set the price book as the book to resolve to.
+        ensBookResolver = new ENSBookResolver(address(priceBook));
+
+        ensBookResolver.addEnsAddress(60, address(priceBook));
 
         priceBook.writePage("Book", "content");
         priceBook.writePage("Cover", "avatar");
 
         // Resolve the address of the name without using a chain ID.
         console.log("////////////////// Resolve address ///////////////////////");
-        (bytes memory result, ) = priceBook.resolve(bytes(""), 
+        (bytes memory result, ) = ensBookResolver.resolve(bytes(""), 
             abi.encodeWithSelector(bytes4(0x3b3b57de), bytes32(0)));
         console.log("Resolved Address: %s", abi.decode(result, (address)));    
 
         // Resolve the address of the name
         console.log("////////////////// Resolve address with coin type 60 ///////////////////////");
-        (bytes memory result1, ) = priceBook.resolve(bytes(""), 
+        (bytes memory result1, ) = ensBookResolver.resolve(bytes(""), 
             abi.encodeWithSelector(bytes4(0xf1cb7e06), bytes32(0), uint256(60)));
         console.log("Resolved Address: %s", abi.decode(result1, (address)));    
 
         // Resolve the text record of the name
         console.log("////////////////// Resolve with avatar record ///////////////////////");
-        (bytes memory txt1, ) = priceBook.resolve(bytes(""), 
+        (bytes memory txt1, ) = ensBookResolver.resolve(bytes(""), 
             abi.encodeWithSelector(bytes4(0x59d1d43c), bytes32(0), "avatar"));
         // log the result
         console.log("Resolved Text Record (avatar): %s", abi.decode(txt1, (string)));
 
         // Resolve the content record of the name
         console.log("////////////////// Resolve content record ///////////////////////");
-        (bytes memory con1, ) = priceBook.resolve(bytes(""), 
+        (bytes memory con1, ) = ensBookResolver.resolve(bytes(""), 
             abi.encodeWithSelector(bytes4(0xbc1c58d1), bytes32(0)));
         // Console log conent record.
         console.log("Resolved Content Record: %s", abi.decode(con1, (string)));
@@ -68,6 +74,7 @@ contract DeployBasicPriceBookScript is Script {
         console.log("Price Book Owner: %s", priceBook.owner());
         console.log("Price Book Unit Price: %s", priceBook.unitPrice());
         console.log("Price Book Page: %s", priceBook.pages("Book"));
+        console.log("EnsBookResolver Address: %s", address(ensBookResolver));
 
         vm.stopBroadcast();
 
