@@ -10,7 +10,7 @@ error CannotEdit(string key);
 // In the Unruggable Protocol a contract that inherits from Unruggable is called a book.
 // Books have pages which can be written to to add onchain data to any contract that inherits from Unruggable. 
 
-contract Unruggable is Ownable, IUnruggable, ERC165{
+contract Unruggable is Ownable(msg.sender), IUnruggable, ERC165{
  
     // A mapping to store pages of the book.
     mapping(string key => string page) public pages;

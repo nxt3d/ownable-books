@@ -11,9 +11,12 @@ import {IENSBookResolver} from "./IENSBookResolver.sol";
 
 error CannotResolve(bytes4 selector);
 
-contract ENSBookResolver is Ownable, IExtendedResolver, IENSBookResolver, ERC165{
+contract ENSBookResolver is Ownable(msg.sender), IExtendedResolver, IENSBookResolver, ERC165{
 
-    // a mapping of ENS Coin Types to addresse
+    // The Book to resolve the ENS names to.
+    IUnruggable public book;
+
+    // A mapping of ENS Coin Types to addresses.
     mapping(uint256 coinType => address _address) public ensAddresses;
 
     // addr(bytes32 node, uint256 coinType) public view virtual override returns (bytes memory) 
@@ -25,6 +28,13 @@ contract ENSBookResolver is Ownable, IExtendedResolver, IENSBookResolver, ERC165
     // contenthash(bytes32 node) external virtual authorised(node) 
     // contenthash( bytes32 node) external view virtual override returns (bytes memory) 
     // => contenthash(bytes32) => 0xbc1c58d1
+
+
+    // Set the book using the constructor.
+
+    constructor(address _book) {
+        book = IUnruggable(_book);
+    }
 
     /**
     * @dev A function to resolve an ENS name. The name parameter is ignored.
@@ -40,9 +50,6 @@ contract ENSBookResolver is Ownable, IExtendedResolver, IENSBookResolver, ERC165
 
         // Read function selector from the data.
         bytes4 selector = bytes4(data[0:4]);    
-
-        // Create an instance of the Unruggable child contract.
-        IUnruggable book = IUnruggable(address(this));
 
         // There is no address resolution for books because we don't want to allow sending of funds to books.
 
