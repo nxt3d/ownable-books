@@ -11,6 +11,7 @@ import {IERC165} from "openzeppelin-contracts/contracts/utils/introspection/IERC
 import {IBasicPriceBook} from "contracts/IBasicPriceBook.sol";
 
 error CannotEdit(string message);
+error OwnableUnauthorizedAccount(address account);
 
 contract BasicPriceBookTest is Test{
 
@@ -77,7 +78,7 @@ contract BasicPriceBookTest is Test{
         assertEq(contractOwner, address(0));
 
         // Check that the owner can not be set again.
-        vm.expectRevert( bytes("Ownable: caller is not the owner"));
+        vm.expectRevert( abi.encodeWithSelector(OwnableUnauthorizedAccount.selector, account));
         priceBook.transferOwnership(account2);
 
     }

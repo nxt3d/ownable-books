@@ -11,7 +11,7 @@ import {IENSBookResolver} from "./IENSBookResolver.sol";
 
 error CannotResolve(bytes4 selector);
 
-contract ENSBookResolver is Ownable, IExtendedResolver, IENSBookResolver, ERC165{
+contract ENSBookResolver is Ownable(msg.sender), IExtendedResolver, IENSBookResolver, ERC165{
 
     // The Book to resolve the ENS names to.
     IUnruggable public book;
