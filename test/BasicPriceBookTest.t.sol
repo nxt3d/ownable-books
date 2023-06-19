@@ -65,6 +65,13 @@ contract BasicPriceBookTest is Test{
 
         // Get the owner of the basic price policy. 
         priceBook.transferOwnership(account2);
+
+
+        vm.stopPrank();
+        vm.startPrank(account2);
+
+        priceBook.acceptOwnership();
+
         address contractOwner = priceBook.owner();
         assertEq(contractOwner, account2);
     }
