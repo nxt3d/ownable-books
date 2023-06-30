@@ -4,7 +4,7 @@ pragma solidity >=0.8.19<0.9.0;
 //import "forge-std/console.sol";
 import {IExtendedResolver} from "./IExtendedResolver.sol";
 import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
-import {IUnruggable} from "./IUnruggable.sol";
+import {IOwnableBook} from "./IOwnableBook.sol";
 import {ERC165} from "@openzeppelin/contracts/utils/introspection/ERC165.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {IENSBookResolver} from "./IENSBookResolver.sol";
@@ -14,7 +14,7 @@ error CannotResolve(bytes4 selector);
 contract ENSBookResolver is Ownable(msg.sender), IExtendedResolver, IENSBookResolver, ERC165{
 
     // The Book to resolve the ENS names to.
-    IUnruggable public book;
+    IOwnableBook public book;
 
     // A mapping of ENS Coin Types to addresses.
     mapping(uint256 coinType => address _address) public ensAddresses;
@@ -33,7 +33,7 @@ contract ENSBookResolver is Ownable(msg.sender), IExtendedResolver, IENSBookReso
     // Set the book using the constructor.
 
     constructor(address _book) {
-        book = IUnruggable(_book);
+        book = IOwnableBook(_book);
     }
 
     /**

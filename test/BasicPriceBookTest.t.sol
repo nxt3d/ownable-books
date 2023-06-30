@@ -4,7 +4,6 @@ pragma solidity ^0.8.19;
 import "forge-std/Test.sol";
 
 import {BasicPriceBook} from "contracts/BasicPriceBook.sol";
-import {IUnruggable} from "contracts/IUnruggable.sol";
 import {ENSBookResolver} from "contracts/ENSBookResolver.sol";
 import {IENSBookResolver} from "contracts/IENSBookResolver.sol";
 import {IERC165} from "openzeppelin-contracts/contracts/utils/introspection/IERC165.sol";
@@ -65,6 +64,13 @@ contract BasicPriceBookTest is Test{
 
         // Get the owner of the basic price policy. 
         priceBook.transferOwnership(account2);
+
+
+        vm.stopPrank();
+        vm.startPrank(account2);
+
+        priceBook.acceptOwnership();
+
         address contractOwner = priceBook.owner();
         assertEq(contractOwner, account2);
     }

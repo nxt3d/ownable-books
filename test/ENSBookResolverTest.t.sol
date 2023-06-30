@@ -4,7 +4,6 @@ pragma solidity ^0.8.19;
 import "forge-std/Test.sol";
 
 import {BasicPriceBook} from "contracts/BasicPriceBook.sol";
-import {IUnruggable} from "contracts/IUnruggable.sol";
 import {ENSBookResolver} from "contracts/ENSBookResolver.sol";
 import {IExtendedResolver} from "contracts/IExtendedResolver.sol";
 import {IENSBookResolver} from "contracts/IENSBookResolver.sol";

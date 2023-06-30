@@ -1,11 +1,11 @@
 
-# Unruggable Protocol
+# Ownable Books Protocol (formerly Unruggable Protocol)
 
-The Unruggable Protocol uses a combination of unruggable contracts and decentralized governance to secure onchain data. The protocol's onchain policies govern the relationship of counterparties throughout the web3 ecosystem and are contained in books, which are governed by guardians to ensure policy integrity over time.
+The Ownable Books Protocol uses a combination of smart contracts and decentralized governance to secure onchain data. The protocol's onchain policies govern the relationship of counterparties throughout the web3 ecosystem and are contained in books, which are governed by guardians to ensure policy integrity over time.
 
 ## Protocol Components
 
-The Unruggable Protocol is composed of three key components: Books, Policies, and Guardians.
+The Ownable Books Protocol is composed of three key components: Books, Policies, and Guardians.
 
 > ### Books
 >
@@ -30,21 +30,21 @@ A sports data book could also be created, containing policies for player and gam
 
 ## Open and Permissionless Protocol 
 
-The Unruggable Protocol is an open and permissionless protocol that allows anyone to create a book. For example, a macroeconomics book could contain policies about GDP and inflation, stating where data would be sourced and how new sources could be used if previous sources become unavailable. Guardians would be responsible for maintaining the data, enabling offchain macroeconomic data to be put onchain in a trustworthy manner.
+The Ownable Books Protocol is an open and permissionless protocol that allows anyone to create a book. For example, a macroeconomics book could contain policies about GDP and inflation, stating where data would be sourced and how new sources could be used if previous sources become unavailable. Guardians would be responsible for maintaining the data, enabling offchain macroeconomic data to be put onchain in a trustworthy manner.
 
 ## Composable Protocol
 
-The Unruggable Protocol is fully composable, with guardians that can be larger entities such as DAOs or multisig wallets. This allows for the highest possible decentralization in governing books. Policies can be a combination of onchain and offchain instructions, with onchain aspects securing policies day-to-day while guardians following offchain policies maintain policies over the long term.
+The Ownable Books Protocol is fully composable, with guardians that can be larger entities such as DAOs or multisig wallets. This allows for the highest possible decentralization in governing books. Policies can be a combination of onchain and offchain instructions, with onchain aspects securing policies day-to-day while guardians following offchain policies maintain policies over the long term.
 
 ## Oracle Risk
 
-One persistent problem in the web3 economy is the issue of outdated, faulty, or malicious oracle data. It is not possible to completely rely on oracle data long-term. The Unruggable Protocol incorporates oracle data into a policy that can be used day-to-day in the same way as an oracle. However, if the oracle dies or is manipulated, a new oracle can be found or maliciously manipulated data can be blocked.
+One persistent problem in the web3 economy is the issue of outdated, faulty, or malicious oracle data. It is not possible to completely rely on oracle data long-term. The Ownable Books Protocol incorporates oracle data into a policy that can be used day-to-day in the same way as an oracle. However, if the oracle dies or is manipulated, a new oracle can be found or maliciously manipulated data can be blocked.
 
 ## Contracts
 
-The Unruggable Protocol does not define a standard for policies. Smart contracts inherit the Unruggable.sol contract, which transforms any smart contract into a Book with pages and makes the smart contract ownable, following the OpenZeppelin standard.
+The Ownable Books Protocol does not define a standard for policies. Smart contracts inherit the OwnableBook.sol contract, which transforms any smart contract into a Book with pages and makes the smart contract ownable, following the OpenZeppelin standard.
 
-The Unruggable Protocol specifies a set of pages with names written in capital letters and spaces, ensuring maximum readability.
+The Ownable Books Protocol specifies a set of pages with names written in capital letters and spaces, ensuring maximum readability.
 
 The "Book" key is employed to store a single URI that points to a file hosting the book's content. Moreover, the "Cover," "Policies," "Guardians," and "Body" pages can also store a URI linking to decentralized storage. All other pages are used to store on-chain data, such as the introduction, sections, and guardians. This approach enables a combination of on-chain and off-chain storage to generate the book's content.
 
@@ -81,10 +81,10 @@ A Book can also be used to resolve ENS records for domain names like domain-rent
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.19<0.9.0;
 
-import {Unruggable} from "unruggable-protocol/contracts/Unruggable.sol";
+import {OwnableBook} from "contracts/OwnableBook.sol";
 import {IBasicPriceBook} from "./IBasicPriceBook.sol";
 
-contract BasicPriceBook is IBasicPriceBook, Unruggable {
+contract BasicPriceBook is IBasicPriceBook, OwnableBook {
 
     uint256 public unitPrice;
 
@@ -126,7 +126,7 @@ contract BasicPriceBook is IBasicPriceBook, Unruggable {
 ```
 
 ## Security and Audits
-Please note that the Unruggable Protocol is currently in development, and our team is working diligently to ensure its security. We recommend that you avoid using the smart contracts in a production environment until a security audit has been completed.
+Please note that the Ownable Books Protocol is currently in development, and our team is working diligently to ensure its security. We recommend that you avoid using the smart contracts in a production environment until a security audit has been completed.
 
 ## Contributions
-Unruggable Protocol is an open source project, and we welcome contributions, including raising issues on GitHub. For direct communication, please DM @nxt3d on Twitter. To contribute code, please fork the repository, create a feature branch (features/$BRANCH_NAME) or a bug fix branch (fix/$BRANCH_NAME), and submit a pull request against the branch. We appreciate your interest in contributing to the development of Unruggable Protocol!
+Ownable Books Protocol is an open source project, and we welcome contributions, including raising issues on GitHub. For direct communication, please DM @nxt3d on Twitter. To contribute code, please fork the repository, create a feature branch (features/$BRANCH_NAME) or a bug fix branch (fix/$BRANCH_NAME), and submit a pull request against the branch. We appreciate your interest in contributing to the development of Ownable Books Protocol!
