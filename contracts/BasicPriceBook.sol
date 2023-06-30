@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.19<0.9.0;
 
-import {Unruggable} from "unruggable-protocol/contracts/Unruggable.sol";
+import {OwnableBook} from "contracts/OwnableBook.sol";
 import {IBasicPriceBook} from "./IBasicPriceBook.sol";
 
-contract BasicPriceBook is IBasicPriceBook, Unruggable {
+contract BasicPriceBook is IBasicPriceBook, OwnableBook {
 
     uint256 public unitPrice;
 

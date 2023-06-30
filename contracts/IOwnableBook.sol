@@ -3,7 +3,7 @@
 pragma solidity >=0.8.19<0.9.0;
 
 
-interface IUnruggable {
+interface IOwnableBook {
 
     function pages(string memory key) external view returns (string memory policy);
 
