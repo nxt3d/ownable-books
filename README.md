@@ -1,5 +1,5 @@
 
-# Ownable Books Protocol
+# Ownable Books Protocol (formerly Unruggable Protocol)
 
 The Ownable Books Protocol uses a combination of smart contracts and decentralized governance to secure onchain data. The protocol's onchain policies govern the relationship of counterparties throughout the web3 ecosystem and are contained in books, which are governed by guardians to ensure policy integrity over time.
 
